@@ -97,7 +97,7 @@ function compareCards(){
 
 function render() {
     pScoreEl.textContent = `Player Deck Count: ${playerDeck.length}`;
-	cScoreEl.textContent = `Computer Deck Count: ${computerDeck.length}`;
+    cScoreEl.textContent = `Computer Deck Count: ${computerDeck.length}`;
     if ("Suit" in playerCard && "Suit" in computerCard) {
         pDeckEl.innerHTML = `<div class="card ${playerCard.Suit}"></div>`;
 	    cDeckEl.innerHTML = `<div class="card ${computerCard.Suit}"></div>`;

@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Aclonica', sans-serif;
   }
 
   
@@ -16,6 +16,7 @@
     padding: 1vmin;
     background-color: black;
     color: white;
+    text-shadow: 0 0 50px #FF0000, 0 0 40px #ff1100;
     text-align: center;
     letter-spacing: .5vmin;
   }
@@ -70,4 +71,8 @@
   button:hover {
     background-color: white;
     color: black
+  }
+
+  #player-score {
+      bottom: 0;
   }
