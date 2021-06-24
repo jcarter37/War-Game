@@ -53,10 +53,8 @@ function createDeck() {
         })
     })
     console.log(deck);
-    return deck
-
+    return deck;
 } 
-
 
 function shuffleDeck(deck) {
     for (let i = deck.length - 1; i > 0; i--) {
@@ -75,7 +73,6 @@ function drawCard(){
     console.log(computerCard)
     compareCards();
 }
-
 
 
 function compareCards(){
@@ -97,26 +94,24 @@ function render() {
     pScoreEl.textContent = `Player Deck Count: ${playerDeck.length}`;
 	cScoreEl.textContent = `Computer Deck Count: ${computerDeck.length}`;
     if ("Suit" in playerCard && "Suit" in computerCard) {
-        pDeckEl.innerHTML = `<div class="card ${playerCard.Suit}"></div>`
-	    cDeckEl.innerHTML = `<div class="card ${computerCard.Suit}"></div>`
+        pDeckEl.innerHTML = `<div class="card ${playerCard.Suit}"></div>`;
+	    cDeckEl.innerHTML = `<div class="card ${computerCard.Suit}"></div>`;
     }   
 }
 
-
-function handleWar(i=0) {
-    console.log("war happened!!!!")
-    // grab 4 cards from each deck & keep any old cards   ... spread operator
-    playerWarCards = [...playerWarCards, ...playerDeck.splice(0, 4)];
-    computerWarCards = [...computerWarCards, ...computerDeck.splice(0, 4)];
+function handleWar() {
     // compare the first card in each to see who wins
-    if (playerWarCards[i].Rank > computerWarCards[i].Rank) {
+    playerWarCards = [...playerDeck.splice(0, 4), ...playerWarCards];
+    computerWarCards = [...computerDeck.splice(0, 4), ...computerWarCards];
+    // grab 4 cards from each deck & keep any old cards   ... spread operator
+    if (playerWarCards[0].Rank > computerWarCards[0].Rank) {
         playerDeck.push(...playerWarCards);
         playerDeck.push(...computerWarCards);
         playerDeck.push(playerCard);
         playerDeck.push(computerCard);
         playerWarCards = [];
         computerWarCards = [];
-    } else if (playerWarCards[i].Rank < computerWarCards[i].Rank) {
+    } else if (playerWarCards[0].Rank < computerWarCards[0].Rank) {
         computerDeck.push(...playerWarCards);
         computerDeck.push(...computerWarCards);
         computerDeck.push(computerCard);
@@ -124,9 +119,11 @@ function handleWar(i=0) {
         playerWarCards = [];
         computerWarCards = [];
     } else {
-        handleWar(i + 4);
+        handleWar();
     }
-} 
+}
+
+
 
 // if playerdeck 0 || computer  deck 0 
 // call check winner at beginning of handle war
