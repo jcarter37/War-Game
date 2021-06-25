@@ -14,16 +14,14 @@ let deck, playerDeck, computerDeck, playerCard, computerCard, pDeckCount, cDeckC
 /*----- cached element references -----*/
 const pDeckEl = document.querySelector('#player-card');
 const cDeckEl = document.querySelector('#comp-card');
-const pStackEl = document.querySelector("player-stack");
-const cStackEl = document.querySelector("computer-stack");
-
-
-
-
+const pStackEl = document.querySelector("#player-stack");
+const cStackEl = document.querySelector("#comp-stack");
+const pWarEl = document.querySelector('#player-war');
+const cWarEl = document.querySelector('#comp-war');
 const pScoreEl = document.querySelector('#player-score');
 const cScoreEl = document.querySelector('#comp-score');
-
-
+// const pWinEl = document.querySelector('#p-win');
+// const cWinEl = document.querySelector('#c-win');
 
 /*----- event listeners -----*/
 document.querySelector('#play').addEventListener('click', drawCard);
@@ -41,6 +39,7 @@ function initialize() {
     computerCard = {};
     winner = null;
     render()
+    renderWarCards();
 }
 
 
@@ -80,6 +79,8 @@ function drawCard(){
 
 
 function compareCards(){
+    pWarEl.innerHTML = "";
+    cWarEl.innerHTML = "";
     checkWinner();
     if(playerCard.Rank > computerCard.Rank) {
         playerDeck.push(playerCard);
@@ -96,20 +97,43 @@ function compareCards(){
 }
 
 function render() {
+    if (playerDeck.length > 0) {
+        pStackEl.innerHTML = `<div class="card back"></div>`;
+    } else {
+        pStackEl.innerHTML = "";
+    } 
+    if (computerDeck.length > 0) {
+        cStackEl.innerHTML = `<div class="card back"></div>`;
+    } else {
+        cStackEl.innerHTML = "";
+    }
     pScoreEl.textContent = `Player Deck Count: ${playerDeck.length}`;
     cScoreEl.textContent = `Computer Deck Count: ${computerDeck.length}`;
-    if ("Suit" in playerCard && "Suit" in computerCard) {
-        pDeckEl.innerHTML = `<div class="card ${playerCard.Suit}"></div>`;
-	    cDeckEl.innerHTML = `<div class="card ${computerCard.Suit}"></div>`;
-        pStackEl.innerHTML = `<div class="card ${playerWarCards.Suit}"></div>`;
-        cStackEl.innerHTML = `<div class="card ${computerWarCards.Suit}"></div>`;
+    pDeckEl.innerHTML = `<div class="card ${playerCard && playerCard.Suit}"></div>`;
+	cDeckEl.innerHTML = `<div class="card ${computerCard && computerCard.Suit}"></div>`;
     }
+
+function renderWarCards() {
+    let pTemplate = "";
+    playerWarCards.forEach(function(card, idx) {
+        pTemplate += `<div class="card ${card.Suit} ${idx === 0 ? "shadow": ""}"></div>`
+    })
+    pWarEl.innerHTML = pTemplate;
+    let cTemplate = "";
+    computerWarCards.forEach(function (card, idx) {
+      cTemplate += `<div class="card ${card.Suit} ${idx === 0 ? "shadow": ""}"></div>`;
+    });
+    cWarEl.innerHTML = cTemplate;
 }
+
+
+
 function handleWar() {
     checkWinner();
     // compare the first card in each to see who wins
     playerWarCards = [...playerDeck.splice(0, 4), ...playerWarCards];
     computerWarCards = [...computerDeck.splice(0, 4), ...computerWarCards];
+    renderWarCards();
     // grab 4 cards from each deck & keep any old cards   ... spread operator
     if (playerWarCards[0].Rank > computerWarCards[0].Rank) {
         playerDeck.push(...playerWarCards);
@@ -140,7 +164,5 @@ function checkWinner() {
         winner = true;
     } 
 }
-// if playerdeck 0 || computer  deck 0 
-// call check winner at beginning of handle war
 
 initialize();

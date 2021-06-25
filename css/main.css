@@ -5,18 +5,20 @@
 
   
   body {
+    display: flex;
     margin: 0;
     height: 100vh;
     display: grid;
-    grid-template-rows: auto 1fr;
   }
   
   header {
     font-size: 6vmin;
     padding: 1vmin;
-    background-color: black;
-    color: white;
-    text-shadow: 0 0 50px #FF0000, 0 0 40px #ff1100;
+    background: 
+    url(https://image.freepik.com/free-vector/sword-shield-seamless-background-backdrop_1284-45995.jpg);
+    background-size: contain;
+    color: black;
+    text-shadow: 0 0 7px #e6ba75, 0 0 7px #e6ba75; 
     text-align: center;
     letter-spacing: .5vmin;
   }
@@ -25,17 +27,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 100%;
-    background-color: lightslategray;
+    background-color: #e6ba75;
+  }
+
+  h1 {
+      color: white;
+      font-size: 1vmin;
   }
   
   section {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 0 4vmin;
+    margin: 0;
+    background: url(https://image.freepik.com/free-vector/sword-shield-seamless-background-backdrop_1284-45995.jpg);
+    background-size: contain;
   }
   
   #play {
@@ -50,9 +57,10 @@
     cursor: pointer;
   }
   
-  #msg {
+  h1 {
     font-size: 5vmin;
-    color: black;
+    color: #1c1d21;
+   
     text-align: center;
   }
   
@@ -68,11 +76,36 @@
     cursor: pointer;
   }
   
-  button:hover {
-    background-color: white;
+  #play:hover {
+    background-color: #60ca60;
     color: black
   }
 
-  #player-score {
-      bottom: 0;
+  #reset:hover {
+      background-color: #c56161;
   }
+
+#comp-card {
+    height: 100px;
+}
+
+#player-score, #comp-score {
+    color: black;
+}
+
+#comp-score {
+    padding: 20px 40px;
+}
+
+#player, #computer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-war, #comp-war {
+    position: absolute;
+    right: 0;
+    padding-right: 40vmin;
+}
