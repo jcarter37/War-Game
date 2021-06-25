@@ -7,7 +7,8 @@ Game Title: War
     The highest value card receives both cards to put at the base of their deck. 
     If the cards drawn are of equal value the two players must then draw 4 more cards comparing the 4th card drawn. 
     During war if the last card revealed is of equal value again repeat the steps until one player draws a higher value card winning the war. 
-    The winner of the war collects all to put at the base of their deck. A player wins by accumulating all 52 cards.
+    The winner of the war collects all to put at the base of their deck. 
+    A player wins by accumulating all 52 cards.
 
 Technologies Used:
      HTML, CSS, JavaScript
@@ -25,7 +26,7 @@ Screenshots:
 
     ![Screen Shot 2021-06-24 at 7 38 55 PM](https://user-images.githubusercontent.com/85077994/123365429-1e15fe80-d52b-11eb-86cc-fbfd733358c0.png)
 
-Getting Started: 
+Getting Started: https://jcarter37.github.io/War-Game/
 
 
 Next Steps: Add set timeout feature and animations so the cards drawn during the flips and war don't seem like they are appearing from no where. Fix how the war card flips render on the screen when multiple wars happen.
