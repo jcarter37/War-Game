@@ -5,7 +5,7 @@ const masterDeck = createDeck()
 
 
 
-let deck, playerDeck, computerDeck, playerCard, computerCard, pDeckCount, cDeckCount, playerWarCards, computerWarCards, winner
+let deck, playerDeck, computerDeck, playerCard, computerCard, pDeckCount, cDeckCount, playerWarCards, computerWarCards
 
 
 
@@ -35,7 +35,6 @@ function initialize() {
     computerWarCards = [];
     playerCard = {};
     computerCard = {};
-    winner = null;
     render()
     renderWarCards();
 }
@@ -76,7 +75,6 @@ function drawCard(){
 function compareCards(){
     pWarEl.innerHTML = '';
     cWarEl.innerHTML = '';
-    checkWinner();
     if(playerCard.Rank > computerCard.Rank) {
         playerDeck.push(playerCard);
         playerDeck.push(computerCard);
@@ -110,7 +108,6 @@ function render() {
     } else {
         pWinEl.innerHTML = '';
     }
-
     pScoreEl.textContent = `Player Deck Count: ${playerDeck.length}`;
     cScoreEl.textContent = `Computer Deck Count: ${computerDeck.length}`;
     pDeckEl.innerHTML = `<div class='card ${playerCard && playerCard.Suit}'></div>`;
@@ -134,7 +131,7 @@ function renderWarCards() {
 
 
 function handleWar() {
-    checkWinner();
+    if (checkWinner()) return;
     playerWarCards = [...playerDeck.splice(0, 4), ...playerWarCards];
     computerWarCards = [...computerDeck.splice(0, 4), ...computerWarCards];
     renderWarCards();
@@ -157,13 +154,16 @@ function handleWar() {
     }
 }
 
-
 function checkWinner() {
-    if (playerDeck.length === 0){
-        winner = true;
-    }else if (computerDeck.length === 0) {
-        winner = true;
-    } 
+    if (playerDeck.length < 4){
+        cWinEl.innerHTML = 'Computer Wins!'
+        return true;
+    }else if (computerDeck.length < 4) {
+        pWinEl.innerHTML = 'Player Wins!'
+        return true;
+    } else {
+        return false;
+    }
 }
 
 initialize();

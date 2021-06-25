@@ -16,15 +16,15 @@ Technologies Used:
 
 Screenshots:
 
-    ![Screen Shot 2021-06-24 at 7 39 48 PM](https://user-images.githubusercontent.com/85077994/123365276-d1322800-d52a-11eb-9210-7f11555d3e30.png)
+    <img src="https://user-images.githubusercontent.com/85077994/123365276-d1322800-d52a-11eb-9210-7f11555d3e30.png">
 
 
 
-    ![Screen Shot 2021-06-24 at 8 25 16 PM](https://user-images.githubusercontent.com/85077994/123365390-0b032e80-d52b-11eb-8989-ee48de293fc1.png)
+    <img src="https://user-images.githubusercontent.com/85077994/123365390-0b032e80-d52b-11eb-8989-ee48de293fc1.png">
 
 
 
-    ![Screen Shot 2021-06-24 at 7 38 55 PM](https://user-images.githubusercontent.com/85077994/123365429-1e15fe80-d52b-11eb-86cc-fbfd733358c0.png)
+    <img src="https://user-images.githubusercontent.com/85077994/123365429-1e15fe80-d52b-11eb-86cc-fbfd733358c0.png">
 
 Getting Started: https://jcarter37.github.io/War-Game/
 
