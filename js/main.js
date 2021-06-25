@@ -20,8 +20,8 @@ const pWarEl = document.querySelector('#player-war');
 const cWarEl = document.querySelector('#comp-war');
 const pScoreEl = document.querySelector('#player-score');
 const cScoreEl = document.querySelector('#comp-score');
-// const pWinEl = document.querySelector('#p-win');
-// const cWinEl = document.querySelector('#c-win');
+const pWinEl = document.querySelector('#p-win');
+const cWinEl = document.querySelector('#c-win');
 
 /*----- event listeners -----*/
 document.querySelector('#play').addEventListener('click', drawCard);
@@ -106,13 +106,25 @@ function render() {
         cStackEl.innerHTML = `<div class="card back"></div>`;
     } else {
         cStackEl.innerHTML = "";
+    } 
+    if (playerDeck.length === 0){
+        cWinEl.innerHTML = "Computer Wins"
+    } else {
+        cWinEl.innerHTML = ""
+    } 
+    if (computerDeck.length === 0) {
+        pWinEl.innerHTML = "Player Wins"
+    } else {
+        pWinEl.innerHTML = "";
     }
+
     pScoreEl.textContent = `Player Deck Count: ${playerDeck.length}`;
     cScoreEl.textContent = `Computer Deck Count: ${computerDeck.length}`;
     pDeckEl.innerHTML = `<div class="card ${playerCard && playerCard.Suit}"></div>`;
 	cDeckEl.innerHTML = `<div class="card ${computerCard && computerCard.Suit}"></div>`;
     }
 
+    
 function renderWarCards() {
     let pTemplate = "";
     playerWarCards.forEach(function(card, idx) {
