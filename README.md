@@ -2,8 +2,12 @@
 
 Game Title: War
 
-    War is a two versus two card game. The deck of cards is shuffled and divided evenly between player and computer. The 
-    26 cards are set facedown and each player draws one card from the top of their deck to compare. The highest value card receives both cards to put at the base of their deck. If the cards drawn are of equal value the two players must then draw 4 more cards comparing the 4th card drawn. During war if the last card revealed is of equal value again repeat the steps until one player draws a higher value card winning the war. The winner of the war collects all to put at the base of their deck. A player wins by accumulating all 52 cards.
+    War is a two versus two card game. The deck of cards is shuffled and divided evenly between player and computer.
+    The 26 cards are set facedown and each player draws one card from the top of their deck to compare. 
+    The highest value card receives both cards to put at the base of their deck. 
+    If the cards drawn are of equal value the two players must then draw 4 more cards comparing the 4th card drawn. 
+    During war if the last card revealed is of equal value again repeat the steps until one player draws a higher value card winning the war. 
+    The winner of the war collects all to put at the base of their deck. A player wins by accumulating all 52 cards.
 
 Technologies Used:
      HTML, CSS, JavaScript
